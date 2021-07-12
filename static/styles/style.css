@@ -1,23 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
 .main-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2,1fr);
+  height: 100vh;
+  background-color: #E5E5E5;
   /* margin-top: -100px; */
 }
 
 .image-div img {
   width: 700px;
-  height: 470px;
+  height: 670px;
   margin-top: 40px;
   margin-right: 50px;
+
 }
 
 .trans-text {
@@ -25,29 +33,48 @@ body {
 }
 
 .heading {
-  color: #4361ee;
+  font-size: 37px;
+  font-weight: 700;
+  font-style: bold;
+  width: 600px;
 }
+
 p {
-  color: #4361ee;
+  color: black;
+  margin-top: 20px;
   padding: 5px;
 }
 
 @media (max-width: 700px) {
   .main-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    flex-direction: column;
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(1,1fr);
+      height: 100vh;
+     
+      background-color: #E5E5E5;
+      
+    }
+    .heading {
+      font-size: 32px;
+      font-weight: 700;
+      font-style: bold;
+      margin-left: -3rem;
+      padding: 3rem;
+    }
+    .input{
+      padding:3rem;
+    }
+    .btnclass{
+      width: 50%;
+      margin: 1.6rem 3rem;
+    }
+      .image-div img {
+        width: 450px;
+        height: 400px;
+        
+      
   }
 
-  .image-div img {
-    width: 550px;
-    height: 400px;
-  }
-
-  .trans-text {
-    margin-top: 70px;
-    font-style: bold;
-  }
+  
 }

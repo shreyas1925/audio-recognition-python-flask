@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,14 +21,9 @@
       href="{{ url_for('static',filename='styles/style.css') }}"
     />
   </head>
+
   <body>
     <div class="main-div">
-      <div class="image-div">
-        <img
-          src="/static/speech-img.jpg"
-          class="animate__animated animate__ animate__infinite"
-        />
-      </div>
       <div class="info-div">
         <h3 style="width: 350px" class="mb-3 heading">
           Upload an audio file with an extension of .wav
@@ -38,26 +33,133 @@
           <br />
           <button
             type="submit"
-            class="btn btn-outline-success rounded-50 mt-5 w-100"
+            class="btn btn-outline-info rounded-50 mt-5 w-100"
             value="Transcribe"
           >
             Transcribe
           </button>
+          {% if transcript != "" %}
+          <p class="trans-text text-capitalize">{{transcript}}</p>
+          {% endif %}
         </form>
       </div>
+      <div class="image-div">
+        <img
+          src="/static/audioimage.png"
+          class="animate__animated animate__ animate__infinite"
+        />
+      </div>
     </div>
-
-    {% if transcript != "" %}
-    <div class="speech-recognized">
-      <p class="trans-text text-capitalize">{{transcript}}</p>
-    </div>
-    {% endif %}
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html> -->
+
+<!-- sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: azure;
+      }
+      .main-div {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .info-div {
+        width: 390px;
+      }
+      .info-div h1 {
+        font-weight: 700;
+      }
+      @media (max-width: 726px) {
+        .main-div {
+          height: 100vh;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column-reverse;
+        }
+        .img {
+          margin-top: -100px;
+          width: 300px;
+          height: 380px;
+        }
+        .info-div {
+          margin-top: 40px;
+          width: 340px;
+        }
+        .info-div h1 {
+          font-weight: 700;
+          font-size: 30px;
+        }
+        .info-div p {
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="info-div">
+        <h1>Python Speech Recognition using Flask</h1>
+        <br />
+        <form action="" enctype="multipart/form-data" method="POST">
+          <input type="file" name="file" />
+          <br />
+          <br />
+          {% if transcript != "" %}
+          <p>{{transcript}}</p>
+          {% endif %}
+          <br />
+          <br />
+          <button class="btn btn-outline-info w-100" type="submit">
+            Submit
+          </button>
+        </form>
+        <br />
+      </div>
+      <div class="image-div">
+        <img src="../static/audioimage.png" alt="" srcset="" class="img" />
+      </div>
+    </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
